@@ -29,20 +29,23 @@
 }
 
 .view {
-	background-image: url("images/enroling2.jpg");
+	background-image: url("images/View Page.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
-table {
-	background-color: transparent;
+tr{
+	color: white;
 }
+select {
+	background-color: transparent;
+	color: red;
+}
+
 </style>
 </head>
 <body>
 	<div class="card">
-		<nav class="d-flex justify-content-between "
-			style="background-color: transparent;">
+		<nav class="  d-flex justify-content-between  ">
 			<img src="images/CJClogo.jpg" width="100px" height="50px">
 			<div class="pt-2">
 				<a href="#enroll">
@@ -61,8 +64,7 @@ table {
 						<div class="card bg-transparent card-registration mt-0"
 							style="border-radius: 15px;">
 							<div class="card-body mt-0 ">
-								<h3 class="heading" style="color: white;">Student
-									Enrollment Form</h3>
+								<h3 class="heading" style="color: white; ">Student Enrollment Form</h3>
 								<form action="enroll_student">
 									<div class="row ">
 										<div class="col-md-6 mb-2">
@@ -88,8 +90,7 @@ table {
 									<div class="row">
 										<div class="col-md-6 mb-2 d-flex align-items-center">
 											<div class="form-outline datepicker w-100">
-												<label for="age" style="color: white;" class="form-label">Student
-													Age</label> <input
+												<label for="age" style="color: white;" class="form-label">Student Age</label> <input
 													style="color: white; background-color: transparent;"
 													type="number" class="form-control form-control-sm "
 													id="age" name="studentAge">
@@ -97,8 +98,7 @@ table {
 										</div>
 										<div class="col-md-6 mb-2 pb-2">
 											<div class="form-outline">
-												<label class="form-label" style="color: white;" for="cn">Student
-													College Name</label> <input
+												<label class="form-label" style="color: white;" for="cn">Student College Name</label> <input
 													style="color: white; background-color: transparent;"
 													type="text" id="cn" class="form-control form-control-sm "
 													name="studentCollegeName">
@@ -145,7 +145,7 @@ table {
 												<option value="#" disabled>Select Batch Mode</option>
 												<option value="Online">Online</option>
 												<option value="Offline">Offline</option>
-											</select> <label class="form-label select-label bg-transparent"
+											</select> <label class="form-label select-label "
 												style="color: white;">Batch Mode</label>
 										</div>
 										<div class="col">
@@ -164,8 +164,7 @@ table {
 												<option value="REG-195">REG-195</option>
 												<option value="FDJ-196">FDJ-196</option>
 												<option value="REG-196">REG-196</option>
-											</select> <label class="form-label select-label" style="color: white;">Batch
-												Number</label>
+											</select> <label class="form-label select-label" style="color: white;">Batch Number</label>
 										</div>
 									</div>
 									<div class="mt-2 pt-2 d-flex justify-content-center">
@@ -180,7 +179,7 @@ table {
 			</div>
 		</section>
 		<section class="view" style="height: 530px" id="view">
-			<h1 class="text-center " style="color: white;">Student Details</h1>
+			<h1 class="text-center " style="color: white; font-family:Cursive;">Student Details</h1>
 			<div class="text-center w-100">
 				<form action="search" class="w-100">
 					<select class="select form-control-sm border bg-transparent"
@@ -202,11 +201,11 @@ table {
 					</select>
 					<button class="btn btn-outline-primary mb-1">Search</button>
 				</form>
-				<marquee>
-					<h1>${message}</h1>
+				<marquee class="loop="1>
+					<h1 style="color: white;">${message}</h1>
 				</marquee>
 			</div>
-			<table class="table table-hover bg-transparent" style="font-size: small">
+			<table class=" table-hover bg-transparent table-bordered" style="font-size: small">
 				<thead style="background-color: transparent">
 					<tr>
 						<th>ID</th>
@@ -235,8 +234,8 @@ table {
 							<td>${s.feesPaid}</td>
 							<td>
 								<div class="btn-group btn-group-sm" role="grouparia-label="...">
-									<button class="btn btn-outline-success">Pay Fees</button>
-									<button class="btn btn-outline-primary">Shift Batch</button>
+									<a class="btn btn-outline-success" href="fees?id=${s.studentId}">Pay Fees</a>
+									<a class="btn btn-outline-primary" href="siftbatch?id=${s.studentId}">Shift Batch</a>
 									<a href="delete?id=${s.studentId}"class="btn btn-outline-danger">Remove</a>
 								</div>
 							</td>
@@ -244,6 +243,7 @@ table {
 					</c:forEach>
 				</tbody>
 			</table>
+			<a href="pagging?pageno=0">1</a>||<a href="pagging?pageno=1">2</a>||<a href="pagging?pageno=2">3</a>
 		</section>
 	</div>
 </body>
